@@ -11,7 +11,7 @@ void setup(){
 
 	pinMode(10, OUTPUT);
 	
-    Serial.begin(115200)
+    Serial.begin(115200);
     Serial.print("Connecting to ");
     Serial.println(ssid);
     WiFi.begin(ssid, password);

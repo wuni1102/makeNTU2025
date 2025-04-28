@@ -2,15 +2,95 @@
   {
     "Sourcefile": null,
     "Include": "",
-    "Includepath": "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\cores\\arduino"
+    "Includepath": "C:\\Users\\wuni1\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.17\\cores\\esp32"
   },
   {
     "Sourcefile": null,
     "Include": "",
-    "Includepath": "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\variants\\standard"
+    "Includepath": "C:\\Users\\wuni1\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.17\\variants\\esp32s3"
   },
   {
     "Sourcefile": "c:\\Users\\wuni1\\OneDrive\\桌面\\code\\Arduino\\makeNTU2025\\makeNTU2025\\build\\sketch\\main.ino.cpp",
+    "Include": "WiFi.h",
+    "Includepath": "C:\\Users\\wuni1\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.17\\libraries\\WiFi\\src"
+  },
+  {
+    "Sourcefile": "c:\\Users\\wuni1\\OneDrive\\桌面\\code\\Arduino\\makeNTU2025\\makeNTU2025\\build\\sketch\\main.ino.cpp",
+    "Include": "HTTPClient.h",
+    "Includepath": "C:\\Users\\wuni1\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.17\\libraries\\HTTPClient\\src"
+  },
+  {
+    "Sourcefile": "c:\\Users\\wuni1\\OneDrive\\桌面\\code\\Arduino\\makeNTU2025\\makeNTU2025\\build\\sketch\\main.ino.cpp",
+    "Include": "WiFiClientSecure.h",
+    "Includepath": "C:\\Users\\wuni1\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.17\\libraries\\WiFiClientSecure\\src"
+  },
+  {
+    "Sourcefile": "c:\\Users\\wuni1\\OneDrive\\桌面\\code\\Arduino\\makeNTU2025\\makeNTU2025\\build\\sketch\\main.ino.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\wuni1\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.17\\libraries\\WiFi\\src\\WiFi.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\wuni1\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.17\\libraries\\WiFi\\src\\WiFiAP.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\wuni1\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.17\\libraries\\WiFi\\src\\WiFiClient.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\wuni1\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.17\\libraries\\WiFi\\src\\WiFiGeneric.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\wuni1\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.17\\libraries\\WiFi\\src\\WiFiMulti.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\wuni1\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.17\\libraries\\WiFi\\src\\WiFiSTA.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\wuni1\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.17\\libraries\\WiFi\\src\\WiFiScan.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\wuni1\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.17\\libraries\\WiFi\\src\\WiFiServer.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\wuni1\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.17\\libraries\\WiFi\\src\\WiFiUdp.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\wuni1\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.17\\libraries\\HTTPClient\\src\\HTTPClient.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\wuni1\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.17\\libraries\\WiFiClientSecure\\src\\WiFiClientSecure.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\wuni1\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.17\\libraries\\WiFiClientSecure\\src\\esp_crt_bundle.c",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "C:\\Users\\wuni1\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.17\\libraries\\WiFiClientSecure\\src\\ssl_client.cpp",
     "Include": "",
     "Includepath": null
   }
