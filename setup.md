@@ -19,3 +19,6 @@ client
 1. 隔一段時間向server送請求
 2. 處理傳過來的指令
 ...
+
+# note
+main.ino好像一定要放在最外層，VScode才能正確啟用Arduino Intellisense
