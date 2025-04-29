@@ -9,9 +9,12 @@ const char* password = "zwfz2867";
 unsigned long lastTime = 0;
 unsigned long timerDelay = 5000;
 
+Move move(8, 9, 10, 11, 5, 3);
+
 void setup(){
 
 	pinMode(10, OUTPUT);
+    move.setPin(); //setPin for move motor
 	
     Serial.begin(115200);
     Serial.print("Connecting to ");
