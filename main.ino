@@ -14,13 +14,14 @@ Head head(12, 13, 14, 15, 1); // int IN_1, int IN_2, int IN_3, int IN_4, int DT
 
 void setup(){
 
+    Serial.begin(115200);
+    
 	pinMode(10, OUTPUT);
     move.setPin(); // set pinMode for move motor
     move.test(15); // cm, for debug
     head.setPin(); // set pinMode for head motor
     head.test(); // for debug
 	
-    Serial.begin(115200);
     Serial.print("Connecting to ");
     Serial.println(ssid);
     WiFi.begin(ssid, password);
