@@ -1,0 +1,125 @@
+#include "head.h"
+
+void Head::setPin(){
+    pinMode(IN_1, OUTPUT);
+    pinMode(IN_2, OUTPUT);
+    pinMode(IN_3, OUTPUT);
+    pinMode(IN_4, OUTPUT);
+    digitalWrite(IN_1, LOW);
+    digitalWrite(IN_2, LOW);
+    digitalWrite(IN_3, LOW);
+    digitalWrite(IN_4, LOW);
+}
+
+void Head::forward(int angle){
+    int steps = 4096*angle/360;
+    while(steps--){
+        digitalWrite(IN_1, HIGH);
+        digitalWrite(IN_2, LOW);
+        digitalWrite(IN_3, LOW);
+        digitalWrite(IN_4, LOW);
+        delay(DT);
+        digitalWrite(IN_1, HIGH);
+        digitalWrite(IN_2, HIGH);
+        digitalWrite(IN_3, LOW);
+        digitalWrite(IN_4, LOW);
+        delay(DT);
+        digitalWrite(IN_1, LOW);
+        digitalWrite(IN_2, HIGH);
+        digitalWrite(IN_3, LOW);
+        digitalWrite(IN_4, LOW);
+        delay(DT);
+        digitalWrite(IN_1, LOW);
+        digitalWrite(IN_2, HIGH);
+        digitalWrite(IN_3, HIGH);
+        digitalWrite(IN_4, LOW);
+        delay(DT);
+        digitalWrite(IN_1, LOW);
+        digitalWrite(IN_2, LOW);
+        digitalWrite(IN_3, HIGH);
+        digitalWrite(IN_4, LOW);
+        delay(DT);
+        digitalWrite(IN_1, LOW);
+        digitalWrite(IN_2, LOW);
+        digitalWrite(IN_3, HIGH);
+        digitalWrite(IN_4, HIGH);
+        delay(DT);
+        digitalWrite(IN_1, LOW);
+        digitalWrite(IN_2, LOW);
+        digitalWrite(IN_3, LOW);
+        digitalWrite(IN_4, HIGH);
+        delay(DT);
+        digitalWrite(IN_1, HIGH);
+        digitalWrite(IN_2, LOW);
+        digitalWrite(IN_3, LOW);
+        digitalWrite(IN_4, HIGH);
+        delay(DT);
+    }
+    digitalWrite(IN_1, LOW);
+    digitalWrite(IN_2, LOW);
+    digitalWrite(IN_3, LOW);
+    digitalWrite(IN_4, LOW);
+}
+
+void Head::backward(int angle){
+    int steps = 4096*angle/360;
+    while(steps--){
+        digitalWrite(IN_1, LOW);
+        digitalWrite(IN_2, LOW);
+        digitalWrite(IN_3, LOW);
+        digitalWrite(IN_4, HIGH);
+        delay(DT);
+        digitalWrite(IN_1, LOW);
+        digitalWrite(IN_2, LOW);
+        digitalWrite(IN_3, HIGH);
+        digitalWrite(IN_4, HIGH);
+        delay(DT);
+        digitalWrite(IN_1, LOW);
+        digitalWrite(IN_2, LOW);
+        digitalWrite(IN_3, HIGH);
+        digitalWrite(IN_4, LOW);
+        delay(DT);
+        digitalWrite(IN_1, LOW);
+        digitalWrite(IN_2, HIGH);
+        digitalWrite(IN_3, HIGH);
+        digitalWrite(IN_4, LOW);
+        delay(DT);
+        digitalWrite(IN_1, LOW);
+        digitalWrite(IN_2, HIGH);
+        digitalWrite(IN_3, LOW);
+        digitalWrite(IN_4, LOW);
+        delay(DT);
+        digitalWrite(IN_1, HIGH);
+        digitalWrite(IN_2, HIGH);
+        digitalWrite(IN_3, LOW);
+        digitalWrite(IN_4, LOW);
+        delay(DT);
+        digitalWrite(IN_1, HIGH);
+        digitalWrite(IN_2, LOW);
+        digitalWrite(IN_3, LOW);
+        digitalWrite(IN_4, LOW);
+        delay(DT);
+        digitalWrite(IN_1, HIGH);
+        digitalWrite(IN_2, LOW);
+        digitalWrite(IN_3, LOW);
+        digitalWrite(IN_4, HIGH);
+        delay(DT);
+    }
+    digitalWrite(IN_1, LOW);
+    digitalWrite(IN_2, LOW);
+    digitalWrite(IN_3, LOW);
+    digitalWrite(IN_4, LOW);
+}
+
+void Head::test(){
+    forward(90);
+    delay(300);
+    backward(180);
+    delay(300);
+    forward(90);
+    delay(300);
+    forward(360);
+    delay(300);
+    backward(360);
+    Serial.println("head test finished");
+}

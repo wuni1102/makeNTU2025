@@ -1,7 +1,7 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 #include "move.h"
-
+#include "head.h"
 
 const char* ssid = "Galaxy A71 5G1CBA";
 const char* password = "zwfz2867";
@@ -9,13 +9,16 @@ const char* password = "zwfz2867";
 unsigned long lastTime = 0;
 unsigned long timerDelay = 5000;
 
-Move move(8, 9, 10, 11, 5, 3); //int R_1A, int R_1B, int L_1A, int L_1B, double DPS, double R
+Move move(8, 9, 10, 11, 5, 3); // int R_1A, int R_1B, int L_1A, int L_1B, double DPS, double R
+Head head(12, 13, 14, 15, 1); // int IN_1, int IN_2, int IN_3, int IN_4, int DT
 
 void setup(){
 
 	pinMode(10, OUTPUT);
-    move.setPin(); //setPin for move motor
-    move.test(15); //cm, for debug
+    move.setPin(); // set pinMode for move motor
+    move.test(15); // cm, for debug
+    head.setPin(); // set pinMode for head motor
+    head.test(); // for debug
 	
     Serial.begin(115200);
     Serial.print("Connecting to ");

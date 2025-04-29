@@ -77,4 +77,5 @@ void Move::test(int m){
     forward(2*m);
     backward(m);
     turn_right(450);
+    Serial.println("move test finished");
 }
