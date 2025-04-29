@@ -240,4 +240,5 @@ c:\Users\wuni1\OneDrive\орн▒\code\Arduino\makeNTU2025\makeNTU2025\build\sketch\m
  C:\Users\wuni1\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.17/tools/sdk/esp32s3/include/mbedtls/port/include/aes_alt.h \
  C:\Users\wuni1\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.17/tools/sdk/esp32s3/include/mbedtls/port/include/aes/esp_aes.h \
  C:\Users\wuni1\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.17/tools/sdk/esp32s3/include/hal/include/hal/aes_types.h \
- C:\Users\wuni1\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.17/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/error.h
+ C:\Users\wuni1\AppData\Local\Arduino15\packages\esp32\hardware\esp32\2.0.17/tools/sdk/esp32s3/include/mbedtls/mbedtls/include/mbedtls/error.h \
+ c:\Users\wuni1\OneDrive\орн▒\code\Arduino\makeNTU2025\makeNTU2025\build\sketch\move.h

@@ -2,6 +2,8 @@
 #line 1 "c:\\Users\\wuni1\\OneDrive\\桌面\\code\\Arduino\\makeNTU2025\\makeNTU2025\\main.ino"
 #include <WiFi.h>
 #include <HTTPClient.h>
+#include "move.h"
+
 
 const char* ssid = "Galaxy A71 5G1CBA";
 const char* password = "zwfz2867";
@@ -9,11 +11,11 @@ const char* password = "zwfz2867";
 unsigned long lastTime = 0;
 unsigned long timerDelay = 5000;
 
-#line 10 "c:\\Users\\wuni1\\OneDrive\\桌面\\code\\Arduino\\makeNTU2025\\makeNTU2025\\main.ino"
+#line 12 "c:\\Users\\wuni1\\OneDrive\\桌面\\code\\Arduino\\makeNTU2025\\makeNTU2025\\main.ino"
 void setup();
-#line 29 "c:\\Users\\wuni1\\OneDrive\\桌面\\code\\Arduino\\makeNTU2025\\makeNTU2025\\main.ino"
+#line 31 "c:\\Users\\wuni1\\OneDrive\\桌面\\code\\Arduino\\makeNTU2025\\makeNTU2025\\main.ino"
 void loop();
-#line 10 "c:\\Users\\wuni1\\OneDrive\\桌面\\code\\Arduino\\makeNTU2025\\makeNTU2025\\main.ino"
+#line 12 "c:\\Users\\wuni1\\OneDrive\\桌面\\code\\Arduino\\makeNTU2025\\makeNTU2025\\main.ino"
 void setup(){
 
 	pinMode(10, OUTPUT);
