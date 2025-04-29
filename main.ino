@@ -9,7 +9,7 @@ const char* password = "zwfz2867";
 unsigned long lastTime = 0;
 unsigned long timerDelay = 5000;
 
-Move move(8, 9, 10, 11, 5, 3);
+Move move(8, 9, 10, 11, 5, 3); //int R_1A, int R_1B, int L_1A, int L_1B, double DPS, double R
 
 void setup(){
 
