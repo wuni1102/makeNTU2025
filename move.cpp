@@ -65,3 +65,16 @@ void Move::turn_right(int angle){
     digitalWrite(L_1A, LOW);
     digitalWrite(L_1B, LOW);
 }
+
+void Move::test(int m){
+    const int m = 10;
+    forward(m);
+    turn_right(90);
+    forward(m);
+    turn_left(90);
+    backward(m);
+    turn_left(90);
+    forward(2*m);
+    backward(m);
+    turn_right(450);
+}

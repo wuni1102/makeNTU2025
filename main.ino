@@ -15,6 +15,7 @@ void setup(){
 
 	pinMode(10, OUTPUT);
     move.setPin(); //setPin for move motor
+    move.test(15); //cm, for debug
 	
     Serial.begin(115200);
     Serial.print("Connecting to ");

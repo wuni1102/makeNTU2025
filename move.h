@@ -13,4 +13,5 @@ public:
     void backward(double dist);
     void turn_left(int angle);
     void turn_right(int angle);
+    void test(int m);
 };
