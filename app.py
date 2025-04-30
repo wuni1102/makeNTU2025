@@ -5,7 +5,7 @@ from flask import redirect, url_for
 from flask import jsonify
 
 global move_buffer
-move_buffer = [""] * 10
+move_buffer = []
 submit_item = []
 
 app = Flask(__name__)
@@ -24,21 +24,25 @@ def data():
 @app.route('/submit', methods=['POST'])
 def submit():
     move = request.form['move']
-    for idx, j in enumerate(move_buffer):
-        if j == "":
-            result = ""
-            for i in str(move):
-                if i.upper() in ['W', 'A', 'S', 'D', 'L', 'R']:
-                    result += i.upper()
-            move_buffer[idx] = result
-            break 
+    
+    result = ""
+    for i in str(move):
+        if i.upper() in ['W', 'A', 'S', 'D', 'L', 'R']:
+            result += i.upper()
+    move_buffer.append(result)
+
     print(move_buffer)
     return redirect('/')
 
 @app.route('/addtolist', methods=['POST'])
 def addtolist():
     item = request.form['item']
-    submit_item.append(item)
+    delete_item = request.form['delete']
+    action = request.form['action']
+    if action=='submit':
+        submit_item.append(item)
+    if action=='delete':
+        move_buffer.remove(delete_item)
     return redirect('/')
 
 if __name__ == '__main__':

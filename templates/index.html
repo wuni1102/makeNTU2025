@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html>
+<meta charset="UTF-8">
     
     <h1>This is a testing page.</h1>
     <p> W: forward, A: left, S: backward, D: right, L: raise left hand, R: raise right hand</p>
@@ -9,15 +10,16 @@
         <input type="submit" value="submit">
     </form>
 
-    <h2>asved moves: </h2>
+    <h2>saved moves: </h2>
     <ul>
         {% for item in move %}
         <li>
+            <label>{{item}}</label>
             <form action="/addtolist" method="POST" style="display:inline;">
-              <input type="hidden" if = "item" name="item" value="{{ item }}">
-              <button type="submit" style="background:none; border:none; color:blue; cursor:pointer;">
-                {{ item }}
-              </button>
+              <input type="hidden" name="item" value="{{ item }}">
+              <button type="submit" name = 'action' value = 'submit'>submit</button>
+              <input type="hidden" name="delete" value="{{ item }}">
+              <button type="submit" name = 'action' value = 'delete'>delete</button>
             </form>
         </li>
         {% endfor %}
