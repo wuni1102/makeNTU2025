@@ -3,6 +3,7 @@ from flask import request
 from flask import render_template
 from flask import redirect, url_for
 from flask import jsonify
+from utils import get_beat
 
 global move_buffer
 move_buffer = []
@@ -16,7 +17,7 @@ def index():
 
 @app.route("/data", methods=['GET'])
 def data():
-    name = request.args.get('name')
+    #name = request.args.get('name')
     ret_list = jsonify(submit_item)
     submit_item.clear()
     return ret_list
@@ -43,6 +44,14 @@ def addtolist():
         submit_item.append(item)
     if action=='delete':
         move_buffer.remove(delete_item)
+    return redirect('/')
+
+@app.route('/handle_audio', methods=['POST'])
+def handle_audio():
+    audio = request.form['file']
+    beats = get_beat(audio)
+    #print(beats)
+    submit_item.append(beats)
     return redirect('/')
 
 if __name__ == '__main__':

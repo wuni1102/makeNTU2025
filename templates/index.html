@@ -25,4 +25,16 @@
         {% endfor %}
     </ul>
 
+    
+    <form action="/handle_audio" method="POST">
+        
+          <label for="file">Upload an audio file:</label>
+        <div>  
+          <input type="file" id="file" name="file" accept="audio/*" />
+        </div>
+        <div>
+          <button>Submit</button>
+        </div>
+    </form>
+
 </html>
