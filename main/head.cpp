@@ -12,6 +12,8 @@ void Head::setPin(){
 }
 
 void Head::forward(int angle){
+    direction += angle;
+    direction %= 360;
     int steps = 4096*angle/360;
     while(steps--){
         digitalWrite(IN_1, HIGH);
@@ -62,6 +64,8 @@ void Head::forward(int angle){
 }
 
 void Head::backward(int angle){
+    direction -= angle;
+    direction %= 360;
     int steps = 4096*angle/360;
     while(steps--){
         digitalWrite(IN_1, LOW);
@@ -109,6 +113,23 @@ void Head::backward(int angle){
     digitalWrite(IN_2, LOW);
     digitalWrite(IN_3, LOW);
     digitalWrite(IN_4, LOW);
+}
+
+void Head::reset(){
+    if(direction >= 0){
+        if(direction >= 180){
+            forward(360-direction);
+        }else{
+            backward(direction);
+        }
+    }else{
+        if(direction >= -180){
+            forward(direction*(-1));
+        }else{
+            backward(360+direction);
+        }
+    }
+    direction = 0;
 }
 
 void Head::test(){

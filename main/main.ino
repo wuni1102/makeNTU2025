@@ -3,6 +3,7 @@
 #include <HTTPClient.h>
 #include "move.h"
 #include "head.h"
+#include "hands.h"
 
 const char* ssid = "Galaxy A71 5G1CBA";
 const char* password = "zwfz2867";
@@ -12,16 +13,20 @@ unsigned long timerDelay = 5000;
 
 Move move(8, 9, 10, 11, 5, 3); // int R_1A, int R_1B, int L_1A, int L_1B, double DPS, double R
 Head head(12, 13, 14, 15, 1); // int IN_1, int IN_2, int IN_3, int IN_4, int DT
+Hands hands(16, 17, 18, 19, 20, 21, 22, 23, 1);
+    //int LIN_1, int LIN_2, int LIN_3, int LIN_4, int RIN_1, int RIN_2, int RIN_3, int RIN_4, int DT
 
 void setup(){
 
     Serial.begin(115200);
     
 	pinMode(10, OUTPUT);
-    move.setPin(); // set pinMode for move motor
+    move.setPin(); // set pinMode for move's motor
     move.test(15); // cm, for debug
-    head.setPin(); // set pinMode for head motor
+    head.setPin(); // set pinMode for head's motor
     head.test(); // for debug
+    hands.setPin(); // set pinMode for hands' motor
+    hands.test(); // for debug
 	
     Serial.print("Connecting to ");
     Serial.println(ssid);
