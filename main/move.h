@@ -1,3 +1,5 @@
+#include <Arduino.h>
+
 class Move{
     const int R_1A;
     const int R_1B;

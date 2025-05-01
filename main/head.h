@@ -1,3 +1,5 @@
+#include <Arduino.h>
+
 class Head{
     const int IN_1;
     const int IN_2;
