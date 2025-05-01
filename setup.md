@@ -21,4 +21,5 @@ client
 ...
 
 # note
-main.ino好像一定要放在最外層，VScode才能正確啟用Arduino Intellisense
+arduino部分的程式不保證可執行。
+app.py 的 /data 作為送資料給esp32之用，但是不同類型的指令之間還沒有辨認區隔，可能要在json file施工一下。
