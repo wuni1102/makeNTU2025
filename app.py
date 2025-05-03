@@ -3,7 +3,16 @@ from flask import request
 from flask import render_template
 from flask import redirect, url_for
 from flask import jsonify
-from utils import get_beat
+#from utils import get_beat
+
+from google import genai
+from google.genai import types
+
+from dotenv import load_dotenv
+
+load_dotenv()
+
+client = genai.Client()
 
 from google import genai
 from google.genai import types
@@ -44,7 +53,7 @@ def submit():
             result += i.upper()
     move_buffer.append(result)
 
-    print(move_buffer)
+    print((move_buffer))
     return redirect("/")
 
 
@@ -54,19 +63,19 @@ def addtolist():
     delete_item = request.form["delete"]
     action = request.form["action"]
     if action == "submit":
-        submit_item.append(item)
+        submit_item.append({"type": "moves", "value": item})
     if action == "delete":
         move_buffer.remove(delete_item)
     return redirect("/")
 
 
-@app.route("/handle_audio", methods=["POST"])
-def handle_audio():
-    audio = request.form["file"]
-    beats = get_beat(audio)
-    # print(beats)
-    submit_item.append(beats)
-    return redirect("/")
+# @app.route("/handle_audio", methods=["POST"])
+# def handle_audio():
+#     audio = request.form["file"]
+#     beats = get_beat(audio)
+#     # print(beats)
+#     submit_item.append({"type": "beats", "value": beats})
+#     return redirect("/")
 
 
 @app.route("/record")
@@ -95,4 +104,4 @@ def transcribe_audio():
 
 
 if __name__ == "__main__":
-    app.run("0.0.0.0")
+    app.run("192.168.180.230")

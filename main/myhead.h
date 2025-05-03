@@ -8,7 +8,7 @@ class myHead{
     const int IN_2;
     const int IN_3;
     const int IN_4;
-    const int DT; // delay time as DT smaller, motor run faster
+    const int DT; // microseconds, delay time as DT smaller, motor run faster
 
 public:
     int direction = 0; //angle, counterclockwise

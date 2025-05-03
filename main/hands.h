@@ -3,7 +3,7 @@
 class Hands{
     const int LIN_1, LIN_2, LIN_3, LIN_4;
     const int RIN_1, RIN_2, RIN_3, RIN_4;
-    const int DT;
+    const int DT; // microseconds
     myHead left;
     myHead right;
 public:
