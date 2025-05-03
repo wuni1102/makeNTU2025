@@ -86,6 +86,46 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         display: none;
       }
+      #commandInput {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: none;
+        resize: vertical;
+        font-size: 16px;
+        margin-top: 10px;
+        background: rgba(255, 255, 255, 0.2);
+        color: #fff;
+        outline: none;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        #commandInput::placeholder {
+        color: #ccc;
+        }
+
+        #submitBtn {
+        background: #28a745;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: all 0.3s ease-in-out;
+        width: 100%;
+        margin: 10px 0;
+        }
+
+        #submitBtn:hover {
+        background: #218838;
+        transform: scale(1.05);
+        }
+
+        #submitBtn:active {
+        transform: scale(0.98);
+        }
+
     </style>
   </head>
   <body>
@@ -93,61 +133,120 @@
       <h1>Recorder</h1>
       <button id="startBtn">🎤 開始錄音</button>
       <button id="stopBtn" disabled>⏹️ 停止錄音</button>
-      <div id="result">等待錄音中...</div>
-      <div id="imgContainer">
-        <img id="image" src="" alt="pics..." />
+      <div id="resultContainer">
+        <div id="result">等待錄音中...</div>
+        <textarea id="commandInput" rows="4" style="display: none; width: 100%; margin-top: 10px;"></textarea>
+        <button id="submitBtn" style="display: none;">🚀 執行命令</button>
       </div>
+      
+      <form action="/handle_uploaded_audio" method="POST">
+        <div>
+          <button id="uploadBtn" disabled>⬆️ 上傳音檔</button>
+        </div>        
+        <div>  
+          <input type="file" id="fileInput" name="fileInput" accept="audio/*" />
+        </div>
+
+      </form>
+
+      <form action="/handle_youtube_link" method="POST">
+        <div>
+          <button id="linkBtn" disabled>🔗 送出連結</button>
+        </div>        
+        <div> 
+          <input type="text" id="textInput" name="textInput"/>
+        </div>
+
+      </form>
+
     </div>
     <script>
-      const startBtn = document.getElementById("startBtn");
-      const stopBtn = document.getElementById("stopBtn");
-      const resultDiv = document.getElementById("result");
-      const image = document.getElementById("image");
-      let recorder;
+        const startBtn = document.getElementById("startBtn");
+        const stopBtn = document.getElementById("stopBtn");
+        const resultDiv = document.getElementById("result");
+        const commandInput = document.getElementById("commandInput");
+        const submitBtn = document.getElementById("submitBtn");
+        const fileInput = document.getElementById("fileInput");
+        const uploadBtn = document.getElementById("uploadBtn");
+        const textInput = document.getElementById("textInput");
+        const linkBtn = document.getElementById("linkBtn");
 
-      startBtn.addEventListener("click", () => {
-        navigator.mediaDevices
-          .getUserMedia({ audio: true })
-          .then((stream) => {
-            recorder = new MediaRecorder(stream);
-            recorder.start();
-            startBtn.disabled = true;
-            stopBtn.disabled = false;
-            resultDiv.textContent = "🎙️ 錄音中...";
-            recorder.ondataavailable = (event) => {
-              if (event.data.size > 0) {
-                const blob = new Blob([event.data], { type: "audio/wav" });
-                sendAudioToServer(blob);
-              }
-            };
-          })
-          .catch((error) => {
-            console.error("無法存取麥克風:", error);
-          });
-      });
-
-      stopBtn.addEventListener("click", () => {
-        recorder.stop();
-        startBtn.disabled = false;
-        stopBtn.disabled = true;
-        resultDiv.textContent = "⏳ 正在處理...";
-      });
-
-      async function sendAudioToServer(blob) {
-        const formData = new FormData();
-        formData.append("audio", blob, "recording.wav");
-        try {
-          const response = await fetch("/generate_commands", {
-            method: "POST",
-            body: formData,
-          });
-          const data = await response.json();
-          resultDiv.textContent = `Generated commands: ${data.commands}`;
-        } catch (error) {
-          console.error("傳送錄音到伺服器時發生錯誤:", error);
-          resultDiv.textContent = "❌ 發生錯誤";
+        let recorder;
+      
+        startBtn.addEventListener("click", () => {
+          navigator.mediaDevices
+            .getUserMedia({ audio: true })
+            .then((stream) => {
+              recorder = new MediaRecorder(stream);
+              recorder.start();
+              startBtn.disabled = true;
+              stopBtn.disabled = false;
+              resultDiv.textContent = "🎙️ 錄音中...";
+              commandInput.style.display = "none";
+              submitBtn.style.display = "none";
+              recorder.ondataavailable = (event) => {
+                if (event.data.size > 0) {
+                  const blob = new Blob([event.data], { type: "audio/wav" });
+                  sendAudioToServer(blob);
+                }
+              };
+            })
+            .catch((error) => {
+              console.error("無法存取麥克風:", error);
+            });
+        });
+      
+        stopBtn.addEventListener("click", () => {
+          recorder.stop();
+          startBtn.disabled = false;
+          stopBtn.disabled = true;
+          resultDiv.textContent = "⏳ 正在處理...";
+        });
+      
+        async function sendAudioToServer(blob) {
+          const formData = new FormData();
+          formData.append("audio", blob, "recording.wav");
+          try {
+            const response = await fetch("/generate_commands", {
+              method: "POST",
+              body: formData,
+            });
+            const data = await response.json();
+            commandInput.value = data.commands;
+            resultDiv.textContent = "✅ 指令已產生，請確認或編輯：";
+            commandInput.style.display = "block";
+            submitBtn.style.display = "block";
+          } catch (error) {
+            console.error("傳送錄音到伺服器時發生錯誤:", error);
+            resultDiv.textContent = "❌ 發生錯誤";
+          }
         }
-      }
-    </script>
+      
+        submitBtn.addEventListener("click", async () => {
+          const command = commandInput.value;
+          try {
+            const response = await fetch("/execute", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({"commands": command }),
+            });
+            const result = await response.json();
+            resultDiv.textContent = `✅ 已執行：${result.message || "成功"}`;
+          } catch (error) {
+            console.error("執行指令時出錯:", error);
+            resultDiv.textContent = "❌ 指令執行失敗";
+          }
+        });
+
+        fileInput.addEventListener("change", () => {
+          uploadBtn.disabled = fileInput.files.length === 0;
+        });
+
+        textInput.addEventListener("input", () => {
+          linkBtn.disabled = textInput.value.trim() === "";
+        });
+
+      </script>
+      
   </body>
 </html>
