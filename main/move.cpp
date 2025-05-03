@@ -15,14 +15,14 @@ void Move::setPin(){
 void Move::forward(double dist){
     double time = dist/DPS;
     digitalWrite(R_1A, HIGH);
-    digitalWrite(R_1B, LOW);
-    digitalWrite(L_1A, HIGH);
-    digitalWrite(L_1B, LOW);
-    delay(time*1000);
-    digitalWrite(R_1A, LOW);
-    digitalWrite(R_1B, LOW);
-    digitalWrite(L_1A, LOW);
-    digitalWrite(L_1B, LOW);
+    // digitalWrite(R_1B, LOW);
+    // digitalWrite(L_1A, HIGH);
+    // digitalWrite(L_1B, LOW);
+    // delay(time*1000);
+    // digitalWrite(R_1A, LOW);
+    // digitalWrite(R_1B, LOW);
+    // digitalWrite(L_1A, LOW);
+    // digitalWrite(L_1B, LOW);
 }
 
 void Move::backward(double dist){
@@ -53,7 +53,7 @@ void Move::turn_left(int angle){
 }
 
 void Move::turn_right(int angle){
-    double n_angle = angle/360*M_PI;
+    double n_angle = angle/360*2*M_PI;
     double time = R*n_angle/DPS;
     digitalWrite(R_1A, LOW);
     digitalWrite(R_1B, HIGH);
@@ -66,8 +66,7 @@ void Move::turn_right(int angle){
     digitalWrite(L_1B, LOW);
 }
 
-void Move::test(int m){
-    const int m = 10;
+void Move::test(int m){  
     forward(m);
     turn_right(90);
     forward(m);
@@ -77,5 +76,5 @@ void Move::test(int m){
     forward(2*m);
     backward(m);
     turn_right(450);
-    Serial.println("move test finished");
+    Serial.println("move test finished");  
 }

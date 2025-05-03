@@ -1,6 +1,9 @@
+#ifndef MYHEAD
+#define MYHEAD
+
 #include <Arduino.h>
 
-class Head{
+class myHead{
     const int IN_1;
     const int IN_2;
     const int IN_3;
@@ -10,7 +13,7 @@ class Head{
 public:
     int direction = 0; //angle, counterclockwise
 
-    Head(int IN_1, int IN_2, int IN_3, int IN_4, int DT):
+    myHead(int IN_1, int IN_2, int IN_3, int IN_4, int DT):
         IN_1(IN_1), IN_2(IN_2), IN_3(IN_3), IN_4(IN_4), DT(DT) {}
     void setPin();
     void forward(int angle);
@@ -18,3 +21,5 @@ public:
     void reset();
     void test();
 };
+
+#endif

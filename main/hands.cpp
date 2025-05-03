@@ -5,18 +5,18 @@ void Hands::setPin(){
     right.setPin();
 }
 
-void Hands::raise_L(int angle = 180){
+void Hands::raise_L(int angle){
     left.direction += angle;
     left.direction %= 360;
     left.forward(angle);
 }
-void Hands::raise_R(int angle = 180){
+void Hands::raise_R(int angle){
     right.direction += angle;
     right.direction %= 360;
     right.forward(angle);
 }
 
-void preRaise(Head &h){
+void preRaise(myHead &h){
     if(h.direction >= 0){
         if(h.direction >= 180){
             h.backward(h.direction-180);
@@ -33,32 +33,36 @@ void preRaise(Head &h){
     h.direction = 180;
 }
 
-void Hands::raise(char c = 'B'){ // L, R, B : left, right, both
+void Hands::raise(char c){ // L, R, B : left, right, both
     switch(c){
         case 'L':
             preRaise(left);
+            break;
         case 'R':
             preRaise(right);
+            break;
         case 'B':
             preRaise(left);
             preRaise(right);
+            break;
         default:
             Serial.println("error: Hands::raise");
+            break;
     }
 }
 
-void Hands::putDown_L(int angle = 180){
+void Hands::putDown_L(int angle){
     left.direction -= angle;
     left.direction %= 360;
     left.backward(angle);
 }
-void Hands::putDown_R(int angle = 180){
+void Hands::putDown_R(int angle){
     right.direction -= angle;
     right.direction %= 360;
     right.backward(angle);
 }
 
-void prePutDown(Head &h){
+void prePutDown(myHead &h){
     if(h.direction >= 0){
         if(h.direction >= 180){
             h.forward(360-h.direction);
@@ -75,17 +79,21 @@ void prePutDown(Head &h){
     h.direction = 0;
 }
 
-void Hands::putDown(char c = 'B'){ // L, R, B : left, right, both
+void Hands::putDown(char c){ // L, R, B : left, right, both
     switch(c){
         case 'L':
             prePutDown(left);
+            break;
         case 'R':
             prePutDown(right);
+            break;
         case 'B':
             prePutDown(left);
             prePutDown(right);
+            break;
         default:
             Serial.println("error: Hands::putDown");
+            break;
     }
 }
 
@@ -98,4 +106,5 @@ void Hands::test(){
     reset();
     raise('B');
     putDown('B');
+    Serial.println("hands test finished");
 }

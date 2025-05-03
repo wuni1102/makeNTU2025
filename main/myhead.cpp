@@ -1,6 +1,6 @@
-#include "head.h"
+#include "myHead.h"
 
-void Head::setPin(){
+void myHead::setPin(){
     pinMode(IN_1, OUTPUT);
     pinMode(IN_2, OUTPUT);
     pinMode(IN_3, OUTPUT);
@@ -11,7 +11,7 @@ void Head::setPin(){
     digitalWrite(IN_4, LOW);
 }
 
-void Head::forward(int angle){
+void myHead::forward(int angle){
     direction += angle;
     direction %= 360;
     int steps = 4096*angle/360;
@@ -63,7 +63,7 @@ void Head::forward(int angle){
     digitalWrite(IN_4, LOW);
 }
 
-void Head::backward(int angle){
+void myHead::backward(int angle){
     direction -= angle;
     direction %= 360;
     int steps = 4096*angle/360;
@@ -115,7 +115,7 @@ void Head::backward(int angle){
     digitalWrite(IN_4, LOW);
 }
 
-void Head::reset(){
+void myHead::reset(){
     if(direction >= 0){
         if(direction >= 180){
             forward(360-direction);
@@ -132,7 +132,7 @@ void Head::reset(){
     direction = 0;
 }
 
-void Head::test(){
+void myHead::test(){
     forward(90);
     delay(300);
     backward(180);
@@ -142,5 +142,5 @@ void Head::test(){
     forward(360);
     delay(300);
     backward(360);
-    Serial.println("head test finished");
+    Serial.println("myHead test finished");
 }

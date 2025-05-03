@@ -1,11 +1,11 @@
-#include "head.h"
+#include "myhead.h"
 
 class Hands{
     const int LIN_1, LIN_2, LIN_3, LIN_4;
     const int RIN_1, RIN_2, RIN_3, RIN_4;
     const int DT;
-    Head left;
-    Head right;
+    myHead left;
+    myHead right;
 public:
     Hands(int LIN_1, int LIN_2, int LIN_3, int LIN_4, int RIN_1, int RIN_2, int RIN_3, int RIN_4, int DT):
         left(LIN_1, LIN_2, LIN_3, LIN_4, DT),
