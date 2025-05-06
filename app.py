@@ -104,4 +104,4 @@ def transcribe_audio():
 
 
 if __name__ == "__main__":
-    app.run("192.168.180.230")
+    app.run("")

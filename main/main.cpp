@@ -7,8 +7,8 @@
 #include "hands.h"
 #include "screen.h"
 
-const char* ssid = "Galaxy A71 5G1CBA";
-const char* password = "zwfz2867";
+const char* ssid = "";
+const char* password = "";
 
 unsigned long lastTime = 0;
 unsigned long timerDelay = 5000;
@@ -51,7 +51,7 @@ void loop(){
     // Check WiFi connection status
     
     HTTPClient http;
-    String serverPath = "http://192.168.180.230:5000/data?name=Hello"; //replace with server's IP address
+    String serverPath = ""; //replace with server's IP address
     
     http.begin(serverPath); //GET request
     int httpCode = http.GET(); 

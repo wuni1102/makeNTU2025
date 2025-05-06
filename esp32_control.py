@@ -1,7 +1,7 @@
 import requests
 
-ESP_IP = "192.168.50.214"  #replace with esp32's IP address
-ESP_IP2 = "192.168.50.215"  #replace with esp32's IP address
+ESP_IP = ""  #replace with esp32's IP address
+ESP_IP2 = ""  #replace with esp32's IP address
 ESP_PORT = 80
 ESP_API_URL = f"http://{ESP_IP}:{ESP_PORT}"
 
